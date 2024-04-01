@@ -1,0 +1,25 @@
+<!DOCTYPE html lang="en">
+<head>
+</head>
+<body>
+
+{{stud}}
+
+<form method="post">
+    {% csrf_token %}
+    <select name="course">
+        {% for course in free_courses %}
+            <option value="{{course.cid}}">{{course}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit"value="ADD COURSE">
+</form>
+<ol>
+    {% for course in added_courses %}
+    <li>{{course}}</li>
+    {% endfor %}
+</ol>
+<h3><a href="{% url 'myapp:students' %}">Add Students</a></h3>
+<h3><a href="{% url 'myapp:courses' %}">Add Courses</a></h3>
+</body>
+</html>

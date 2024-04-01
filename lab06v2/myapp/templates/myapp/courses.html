@@ -1,0 +1,20 @@
+<!DOCTYPE html lang="en">
+<head>
+</head>
+<body>
+    <h1>Courses:</h1>
+    <ul>
+        {% for course in courses %}
+            <li>ID {{course.cid}}</li>
+        {% endfor %}
+    </ul>
+    <form action="{% url 'myapp:courses' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit">
+    </form>
+    <a href="{% url 'myapp:courses' %}"></a>
+    <a href="{% url 'myapp:students' %}">Add Students</a>
+    
+</body>
+</html>
